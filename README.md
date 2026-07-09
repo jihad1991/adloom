@@ -37,6 +37,7 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
 | `/adloom-hook` | 6 scroll-stopping opening lines for any topic, on-voice |
 | `/adloom-concept` | Creative director: 5 Big-Idea routes (visual metaphor, UI-in-real-world, scale play, cinematic portrait, type poster) with ready Gemini prompts |
 | `/adloom-plate` | Gemini image plates + **extend one master across 1:1 / 4:5 / 9:16** (same image, every size) |
+| `/adloom-shots` | Screen Library: Playwright-captured product screens in a versioned library for mockups |
 | `/adloom-compose` | Strict-grid HTML compositing + embedded fonts → exact-pixel PNGs (headless Chrome) |
 | `/adloom-campaign` | Orchestrate a full multi-day campaign end-to-end |
 | `/adloom-review` | Adversarial design QA: contrast, grid, overlap, fake text, cross-ratio consistency |
