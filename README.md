@@ -20,6 +20,8 @@ Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) ca
 </p>
 
 ```
+/adloom-source ─▶ product.md + config.json      (SaaS? learn the whole product from its source code)
+      │
 brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-plate    (AI imagery, one master → all ratios)
                                               ├─▶ /adloom-compose  (grid + fonts + mockups → PNGs)
                                               ├─▶ /adloom-hook     (openers) → captions
@@ -33,6 +35,7 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
 
 | Skill | Does |
 |-------|------|
+| `/adloom-source` | **Learn a whole SaaS from its source code** — routes, i18n, theme, fonts, logo → `product.md` + auto-filled `config.json`, no verbal brief |
 | `/adloom-voice` | Build a reusable `brand-voice.md` from an interview + real samples |
 | `/adloom-hook` | 6 scroll-stopping opening lines for any topic, on-voice |
 | `/adloom-concept` | Creative director: 5 Big-Idea routes (visual metaphor, UI-in-real-world, scale play, cinematic portrait, type poster) with ready Gemini prompts |
@@ -44,6 +47,9 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
 | `/adloom-schedule` | Schedule to Facebook / Instagram / LinkedIn via the Metricool MCP |
 
 ## Why it's different
+- **Source-aware for SaaS**: point it at your product's repo and it learns the whole system — every
+  feature, the real screens, the palette and fonts — so campaigns are grounded in what the product
+  actually does, with no verbal briefing. Nothing is fabricated: claims trace back to routes and labels.
 - **Cross-ratio consistency**: one master image is *reframed* (image-to-image), not regenerated, so 1:1,
   4:5 and 9:16 show the same scene.
 - **Pixel-identical renders**: brand fonts are embedded as base64 `@font-face` — no flaky web-font fetches
@@ -79,6 +85,7 @@ Everything brand-specific lives in `config.json` (palette, fonts, aspect ratios,
 secrets live in `.env` (never committed). No brand data is baked into the skills or scripts.
 
 ## Scripts
+- `scripts/scan.mjs` — read a SaaS repo and emit raw product signals (routes, i18n, palette, fonts, logos) as JSON for `/adloom-source`. Zero deps, read-only. (`node scripts/scan.mjs ../my-saas product-scan.json`)
 - `scripts/gen.mjs` — Gemini text-to-image plate. (`npm run plate -- out.png "4:5" "<prompt>"`)
 - `scripts/gen_edit.mjs` — image-to-image reframe/extend (cross-ratio consistency, targeted edits). (`npm run extend`)
 - `scripts/render.mjs` — render an HTML artboard to PNG at exact pixels via headless Chrome. (`npm run render`)

@@ -15,6 +15,7 @@ Generate **6 hooks** for a given topic. Start at Step 1 — do not explain what 
 
 ## Before generating
 - If `brand-voice.md` exists, obey its tone/register. Else use `config.json` `brand` facts (and suggest running `/adloom-voice`, but don't block).
+- If `product.md` exists (from `/adloom-source`), use its feature map + terminology so hooks name real capabilities in the product's own words.
 - Input: a topic/feature. If missing, ask one line for it.
 - Speak to the brand's audience by their direct benefit, not the feature.
 

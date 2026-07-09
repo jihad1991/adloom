@@ -7,6 +7,10 @@
     "languages": ["ar", "en"],
     "emoji": false
   },
+  "source": {
+    "root": "../your-saas-repo",
+    "appUrl": "http://localhost:3000"
+  },
   "palette": {
     "bg": "#1C2336",
     "bgDeep": "#0F1623",

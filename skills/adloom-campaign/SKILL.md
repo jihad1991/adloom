@@ -16,7 +16,9 @@ Run a whole campaign as one coordinated pass. Keep the human in the loop between
 
 ## Inputs
 `config.json` (brand/palette/fonts/ratios/hashtags/schedule) · `brand-voice.md` (run `/adloom-voice` first
-if missing) · a brief: goal, number of days, the angle/season, and the message per day.
+if missing) · `product.md` (run `/adloom-source` first for a SaaS — plan days around its feature map and
+marketing angles instead of a hand-typed brief) · a brief: goal, number of days, the angle/season, and
+the message per day.
 
 ## Phases
 1. **Plan** — one line per day: pillar, headline idea, CTA, and best-time slot from `config.schedule`.

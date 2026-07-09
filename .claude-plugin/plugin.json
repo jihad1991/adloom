@@ -6,6 +6,7 @@
   "license": "MIT",
   "keywords": ["social-media", "gemini", "image-generation", "compositing", "metricool", "scheduling", "captions", "campaign", "claude-code", "skills"],
   "skills": [
+    "skills/adloom-source",
     "skills/adloom-voice",
     "skills/adloom-hook",
     "skills/adloom-concept",

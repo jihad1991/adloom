@@ -19,7 +19,8 @@ different archetype, then hand the winner to `/adloom-plate`.
 
 ## Input
 One message/benefit (e.g. "orders arrive instantly", "coffee restarts your morning") + the brand facts
-from `config.json`. If the message is vague, sharpen it to ONE claim first — a concept can only carry one.
+from `config.json`. If `product.md` exists (from `/adloom-source`), draw the claim from a real feature in
+its map, not a generic one. If the message is vague, sharpen it to ONE claim first — a concept can only carry one.
 
 ## The 5 archetypes (pitch one route from each)
 
