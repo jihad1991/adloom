@@ -42,6 +42,20 @@ node scripts/render.mjs out/day1_4x5.html out/day1_4x5.png 1080 1350
 `render.mjs` uses absolute paths + a unique user-data-dir (both required — headless Chrome silently
 writes nothing otherwise). Loop it over each ratio.
 
+## Poster mode (editorial typography)
+For concept-driven art (`/adloom-concept`), the safe strict-grid header can give way to **display type as
+part of the design** — keep the grid margins, break the scale:
+- **Scale contrast in one headline**: eyebrow small-caps tracked wide, then a 2–4× jump — one word huge
+  (120–200px), the rest modest. Mix weights AND colors across spans (`Iconic` thin-white / `Legacy` fat-accent).
+- **Script/serif accent**: a third face for 2–3 words max ("In Your Life") at an angle or offset — never
+  for the main claim.
+- **Type interacting with the scene**: place the display word so the plate's subject slightly overlaps it
+  (subject layered above via a duplicated cut-out `<img>` with `clip-path`/mask, or bake the word into the
+  plate via route 5 of `/adloom-concept`).
+- **Info strip footer**: a slim bar (phone · address · handle) in `bgDeep` with accent icons — replaces
+  the logo/CTA baseline when the poster is for print-like use.
+- Poster mode still obeys: palette hexes, embedded fonts, equal margins, one focal point.
+
 ## Checklist before shipping an artboard
 - Headline legible over the plate (scrim if needed) · logo + CTA on one baseline · equal margins ·
   no gibberish text visible · same visual language as its campaign siblings · one embedded font family.

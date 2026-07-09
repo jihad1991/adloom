@@ -27,6 +27,11 @@ Prompt tips: state the brand palette hex, the scene, "generous empty space at th
 and hard negatives ("no gibberish text, not a cartoon" etc.). Photoreal vs 3D-diorama vs UI-mockup —
 pick ONE language and keep it consistent across a campaign (mixing styles reads as incoherent).
 
+For **concept-driven ads** (visual metaphor, UI-in-the-real-world, scale play, cinematic portrait,
+editorial type poster) run `/adloom-concept` first — it pitches 5 idea routes and hands you the exact
+prompt. Any words baked into the plate must be spelled out in the prompt (2–4 short real words max)
+and verified by `/adloom-review`.
+
 ## 2) Extend the master to the other ratios (consistency)
 Do NOT re-generate from scratch (you'd get a different scene). Reframe the master:
 ```

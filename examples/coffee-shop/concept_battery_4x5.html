@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
+/* Adloom poster-mode demo — editorial type over a concept plate (/adloom-concept route 2). */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+.art{position:relative;width:1080px;height:1350px;overflow:hidden;
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  display:flex;flex-direction:column;justify-content:space-between;padding:78px}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.stop{position:absolute;left:0;right:0;top:0;height:34%;z-index:1;
+  background:linear-gradient(180deg,rgba(12,26,21,.55) 0%,transparent 100%)}
+.header{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px}
+.eye{color:#D8B98A;font-weight:700;font-size:24px;letter-spacing:.38em;text-transform:uppercase;line-height:1}
+.h1{color:#fff;text-align:center;line-height:.98}
+.h1 .soft{display:block;font-weight:300;font-size:64px;letter-spacing:.02em;color:rgba(255,255,255,.92)}
+.h1 .big{display:block;font-weight:800;font-size:168px;letter-spacing:-.02em;color:#D8B98A}
+.sub{color:rgba(255,255,255,.65);font-size:26px;font-weight:400;letter-spacing:.04em;margin-top:10px}
+.footer{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+.logo{color:#fff;font-weight:800;font-size:36px;letter-spacing:.14em}
+.logo i{font-style:normal;color:#D8B98A}
+.strip{display:flex;align-items:center;gap:26px;background:rgba(12,26,21,.75);
+  border:1px solid rgba(216,185,138,.35);border-radius:999px;padding:16px 34px}
+.strip span{color:#F6F1E6;font-size:22px;letter-spacing:.03em}
+.strip b{color:#D8B98A;font-weight:700}
+</style></head><body>
+<div class="art">
+  <img class="bg" src="concept_battery_4x5.png">
+  <div class="stop"></div>
+  <header class="header">
+    <div class="eye">Monday Mode</div>
+    <div class="h1"><span class="soft">Low battery?</span><span class="big">Recharge.</span></div>
+    <div class="sub">85% and climbing — one pour at a time.</div>
+  </header>
+  <footer class="footer">
+    <div class="logo">DRIP<i>&amp;</i>CO</div>
+    <div class="strip"><span><b>Open 7:00</b> · 12 Roast Lane</span><span>@dripandco</span></div>
+  </footer>
+</div></body></html>

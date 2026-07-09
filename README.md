@@ -10,10 +10,13 @@ week to your networks via Metricool.
 Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) campaign.
 
 <p align="center">
-  <img src="examples/coffee-shop/demo_4x5.png" width="420" alt="Adloom demo — AI plate + strict-grid composite, rendered to 1080x1350">
+  <img src="examples/coffee-shop/demo_4x5.png" width="380" alt="Adloom demo — AI plate + strict-grid composite">
+  &nbsp;
+  <img src="examples/coffee-shop/concept_battery_final_4x5.png" width="380" alt="Adloom concept ad — UI-in-the-real-world metaphor with editorial typography">
   <br>
-  <em>Made entirely by Adloom: Gemini plate → strict-grid HTML composite → exact-pixel render.
-  Reproduce it from <a href="examples/coffee-shop/">examples/coffee-shop</a>.</em>
+  <em>Both made entirely by Adloom. Left: strict-grid product post. Right: a <code>/adloom-concept</code> Big-Idea ad
+  (phone battery built from coffee) with poster-mode typography. Reproduce them from
+  <a href="examples/coffee-shop/">examples/coffee-shop</a>.</em>
 </p>
 
 ```
@@ -32,6 +35,7 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
 |-------|------|
 | `/adloom-voice` | Build a reusable `brand-voice.md` from an interview + real samples |
 | `/adloom-hook` | 6 scroll-stopping opening lines for any topic, on-voice |
+| `/adloom-concept` | Creative director: 5 Big-Idea routes (visual metaphor, UI-in-real-world, scale play, cinematic portrait, type poster) with ready Gemini prompts |
 | `/adloom-plate` | Gemini image plates + **extend one master across 1:1 / 4:5 / 9:16** (same image, every size) |
 | `/adloom-compose` | Strict-grid HTML compositing + embedded fonts → exact-pixel PNGs (headless Chrome) |
 | `/adloom-campaign` | Orchestrate a full multi-day campaign end-to-end |
