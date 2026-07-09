@@ -3,6 +3,7 @@
     "name": "Your Brand",
     "audience": "who you sell to, in one line",
     "promise": "the one-line benefit promise",
+    "domain": "yourbrand.com",
     "languages": ["ar", "en"],
     "emoji": false
   },

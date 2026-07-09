@@ -54,6 +54,13 @@ part of the design** — keep the grid margins, break the scale:
   plate via route 5 of `/adloom-concept`).
 - **Info strip footer**: a slim bar (phone · address · handle) in `bgDeep` with accent icons — replaces
   the logo/CTA baseline when the poster is for print-like use.
+
+## Brand Signature (the locked footer)
+`scripts/signature.mjs` renders the **Brand Signature** — a full-width pill anchored to the bottom of
+every artwork: logo on one side, tagline + domain on the other, `dark`/`light` variants from the palette.
+Designs can differ wildly above it; the signature never moves. The logo appears ONCE per artwork — in the
+signature. Use it as the last child of the artboard's space-between column; a CTA (if any) sits directly
+above it.
 - Poster mode still obeys: palette hexes, embedded fonts, equal margins, one focal point.
 
 ## Checklist before shipping an artboard
