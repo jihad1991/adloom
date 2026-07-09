@@ -1,0 +1,40 @@
+{
+  "brand": {
+    "name": "Your Brand",
+    "audience": "who you sell to, in one line",
+    "promise": "the one-line benefit promise",
+    "languages": ["ar", "en"],
+    "emoji": false
+  },
+  "palette": {
+    "bg": "#1C2336",
+    "bgDeep": "#0F1623",
+    "accent": "#5FBEB6",
+    "accentDeep": "#3AA8A0",
+    "light": "#F6F1E6",
+    "textOnBg": "#FFFFFF",
+    "textOnAccent": "#1C2336"
+  },
+  "fonts": {
+    "family": "Your Brand Arabic",
+    "dir": "./fonts",
+    "weights": [["Brand-Regular.ttf", 400], ["Brand-Medium.ttf", 500], ["Brand-SemiBold.ttf", 600], ["Brand-Bold.ttf", 700]],
+    "latinFamily": "Inter"
+  },
+  "logo": { "light": "./assets/logo-white.svg", "dark": "./assets/logo-dark.png" },
+  "grid": { "margin": 78, "eyebrowSize": 26, "logoHeight": 52, "ctaSize": 34 },
+  "ratios": {
+    "1x1":  { "w": 1080, "h": 1080 },
+    "4x5":  { "w": 1080, "h": 1350 },
+    "9x16": { "w": 1080, "h": 1920 }
+  },
+  "hashtags": {
+    "fixed": ["#YourBrand", "#YourCity"],
+    "topical": ["#topic1", "#topic2"]
+  },
+  "schedule": {
+    "timezone": "Asia/Muscat",
+    "networks": ["facebook", "instagram", "linkedin"],
+    "bestTimes": ["13:30", "20:30"]
+  }
+}

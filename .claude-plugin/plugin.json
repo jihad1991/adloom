@@ -1,0 +1,16 @@
+{
+  "name": "adloom",
+  "version": "0.1.0",
+  "description": "Design-to-publish studio for social campaigns: AI image plates, strict-grid HTML compositing, brand-voice captions, and one-call scheduling to Metricool. Weaves image + copy + schedule into one loom.",
+  "author": "Adloom contributors",
+  "license": "MIT",
+  "keywords": ["social-media", "gemini", "image-generation", "compositing", "metricool", "scheduling", "captions", "campaign", "claude-code", "skills"],
+  "skills": [
+    "skills/adloom-voice",
+    "skills/adloom-hook",
+    "skills/adloom-plate",
+    "skills/adloom-compose",
+    "skills/adloom-campaign",
+    "skills/adloom-schedule"
+  ]
+}

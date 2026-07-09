@@ -1,0 +1,26 @@
+# secrets — never commit
+.env
+*.key
+*.pem
+
+# node
+node_modules/
+npm-debug.log*
+
+# generated output (plates, composites, renders)
+out/
+output/
+renders/
+*.local.png
+*.local.jpg
+
+# fonts you don't have redistribution rights to — bring your own
+fonts/*.ttf
+fonts/*.otf
+fonts/*.woff
+fonts/*.woff2
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
