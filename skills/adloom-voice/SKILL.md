@@ -9,7 +9,6 @@ description: >
 metadata:
   author: Adloom
   version: "0.1.0"
-  adaptedFrom: charlie947/social-media-skills · voice-builder (MIT)
 ---
 
 # Adloom Voice

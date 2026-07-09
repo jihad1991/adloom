@@ -66,8 +66,5 @@ secrets live in `.env` (never committed). No brand data is baked into the skills
 - The scheduler asks for explicit confirmation before anything goes live, and only uploads images you
   approve to a public host.
 
-## Credits & license
-MIT licensed. The `adloom-voice` and `adloom-hook` skills are adapted (rewritten, generalized, multilingual)
-from [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) (MIT) — thanks to
-Charlie Hills. Everything else (plate extension, compositing, campaign orchestration, Metricool scheduling)
-is original to Adloom.
+## License
+MIT licensed. All code and skill text in this repository are original to Adloom.

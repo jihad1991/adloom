@@ -7,7 +7,6 @@ description: >
 metadata:
   author: Adloom
   version: "0.1.0"
-  adaptedFrom: charlie947/social-media-skills · hook-generator (MIT)
 ---
 
 # Adloom Hook Generator
