@@ -9,6 +9,23 @@ week to your networks via Metricool.
 
 Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) campaign.
 
+<p align="center">
+  <img src="examples/coffee-shop/demo_4x5.png" width="420" alt="Adloom demo — AI plate + strict-grid composite, rendered to 1080x1350">
+  <br>
+  <em>Made entirely by Adloom: Gemini plate → strict-grid HTML composite → exact-pixel render.
+  Reproduce it from <a href="examples/coffee-shop/">examples/coffee-shop</a>.</em>
+</p>
+
+```
+brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-plate    (AI imagery, one master → all ratios)
+                                              ├─▶ /adloom-compose  (grid + fonts + mockups → PNGs)
+                                              ├─▶ /adloom-hook     (openers) → captions
+                                              └─▶ /adloom-review   (QA every artboard)
+                                                        │ pass
+                                                        ▼
+                                               /adloom-schedule    (Metricool → FB / IG / LinkedIn)
+```
+
 ## What's inside
 
 | Skill | Does |
@@ -18,6 +35,7 @@ Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) ca
 | `/adloom-plate` | Gemini image plates + **extend one master across 1:1 / 4:5 / 9:16** (same image, every size) |
 | `/adloom-compose` | Strict-grid HTML compositing + embedded fonts → exact-pixel PNGs (headless Chrome) |
 | `/adloom-campaign` | Orchestrate a full multi-day campaign end-to-end |
+| `/adloom-review` | Adversarial design QA: contrast, grid, overlap, fake text, cross-ratio consistency |
 | `/adloom-schedule` | Schedule to Facebook / Instagram / LinkedIn via the Metricool MCP |
 
 ## Why it's different
@@ -56,10 +74,14 @@ Everything brand-specific lives in `config.json` (palette, fonts, aspect ratios,
 secrets live in `.env` (never committed). No brand data is baked into the skills or scripts.
 
 ## Scripts
-- `scripts/gen.mjs` — Gemini text-to-image plate.
-- `scripts/gen_edit.mjs` — image-to-image reframe/extend (cross-ratio consistency, targeted edits).
-- `scripts/render.mjs` — render an HTML artboard to PNG at exact pixels via headless Chrome.
+- `scripts/gen.mjs` — Gemini text-to-image plate. (`npm run plate -- out.png "4:5" "<prompt>"`)
+- `scripts/gen_edit.mjs` — image-to-image reframe/extend (cross-ratio consistency, targeted edits). (`npm run extend`)
+- `scripts/render.mjs` — render an HTML artboard to PNG at exact pixels via headless Chrome. (`npm run render`)
 - `scripts/fontface.mjs` — embed local fonts as base64 `@font-face`.
+
+## Try it in 5 minutes
+[`examples/coffee-shop/`](examples/coffee-shop/) is a complete miniature project — config, brand voice,
+a 3-day campaign, and the exact commands that produced the demo image above.
 
 ## Security
 - Never commit `.env`, API keys, or account IDs. `.gitignore` covers them.

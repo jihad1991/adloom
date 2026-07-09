@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "name": "Drip&Co",
+    "audience": "city professionals who treat coffee as a morning ritual",
+    "promise": "specialty coffee, poured with intent",
+    "languages": ["en"],
+    "emoji": false
+  },
+  "palette": {
+    "bg": "#1F3A33",
+    "bgDeep": "#12201C",
+    "accent": "#D8B98A",
+    "accentDeep": "#B99A6B",
+    "light": "#F6F1E6",
+    "textOnBg": "#FFFFFF",
+    "textOnAccent": "#1F3A33"
+  },
+  "fonts": {
+    "family": "Segoe UI",
+    "dir": "./fonts",
+    "weights": [],
+    "latinFamily": "Segoe UI",
+    "note": "demo uses system fonts; real projects drop brand .ttf files in ./fonts and list weights here"
+  },
+  "logo": { "note": "demo renders a text logo; real projects point to ./assets/logo-*.svg" },
+  "grid": { "margin": 78, "eyebrowSize": 26, "logoHeight": 52, "ctaSize": 34 },
+  "ratios": {
+    "1x1":  { "w": 1080, "h": 1080 },
+    "4x5":  { "w": 1080, "h": 1350 },
+    "9x16": { "w": 1080, "h": 1920 }
+  },
+  "hashtags": {
+    "fixed": ["#DripAndCo", "#SpecialtyCoffee"],
+    "topical": ["#LatteArt", "#SlowMornings", "#ThirdWaveCoffee"]
+  },
+  "schedule": {
+    "timezone": "Europe/London",
+    "networks": ["instagram", "facebook"],
+    "bestTimes": ["08:00", "17:30"]
+  }
+}
