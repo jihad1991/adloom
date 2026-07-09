@@ -35,7 +35,7 @@ Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) ca
 Requires Node 18+ and Chrome/Chromium.
 
 ```bash
-git clone https://github.com/<you>/adloom.git
+git clone https://github.com/jihad1991/adloom.git
 cd adloom
 cp .env.example .env         # add your Google AI Studio key (GKEY)
 cp config.example.json config.json   # set brand palette, fonts, ratios, hashtags
