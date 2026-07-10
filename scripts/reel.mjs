@@ -83,7 +83,7 @@ const cleanup = [];
 function renderHtml(html, name) {
   const htmlPath = path.join(tmp, name + ".html");
   const pngPath = path.join(tmp, name + ".png");
-  fs.writeFileSync(htmlPath, html);
+  fs.writeFileSync(htmlPath, `<!doctype html><meta charset="utf-8">${html}`);
   const udd = path.join(tmp, "udd-" + name);
   execFileSync(chrome, [
     "--headless", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
@@ -139,7 +139,14 @@ function probeDuration(f) {
   const d = parseFloat(out);
   return Number.isFinite(d) && d > 0 ? d : null;
 }
-const DUR = probeDuration(screencast) ?? (beats.length ? Math.max(...beats.map(b => b.to)) : 8);
+// Optional trim + speed on the raw footage (skip boot dead-time, tighten pacing).
+// Beat times below are in OUTPUT time — i.e. after trim/speed.
+const src = reel.source ?? {};
+const rawDur = probeDuration(screencast) ?? 8;
+const trimStart = Math.max(0, src.trimStart ?? 0);
+const trimEnd = src.trimEnd != null ? Math.min(src.trimEnd, rawDur) : rawDur;
+const speed = src.speed && src.speed > 0 ? src.speed : 1;
+const DUR = Math.max(0.1, (trimEnd - trimStart) / speed);
 
 // ---- build ffmpeg graph ------------------------------------------------------
 // inputs: 0 screencast, 1 bg, 2 frame, 3.. captions
@@ -148,7 +155,11 @@ beats.forEach(b => inputs.push("-loop", "1", "-i", b.png));
 
 const fc = [];
 fc.push(`[1:v]scale=${W}:${H},setsar=1[bg]`);
-fc.push(`[0:v]scale=${screen.w}:${screen.h}:force_original_aspect_ratio=increase,crop=${screen.w}:${screen.h},setsar=1[scr]`);
+// Optional edge crops on the raw footage (e.g. cut a dev toolbar off the bottom).
+const cropT = Math.max(0, src.cropTop ?? 0), cropB = Math.max(0, src.cropBottom ?? 0);
+const edgeCrop = (cropT || cropB) ? `crop=iw:ih-${cropT + cropB}:0:${cropT},` : "";
+fc.push(`[0:v]trim=${trimStart}:${trimEnd},setpts=(PTS-STARTPTS)/${speed},${edgeCrop}` +
+  `scale=${screen.w}:${screen.h}:force_original_aspect_ratio=increase,crop=${screen.w}:${screen.h},setsar=1,fps=${FPS}[scr]`);
 fc.push(`[bg][scr]overlay=${screen.x}:${screen.y}[s0]`);
 fc.push(`[s0][2:v]overlay=0:0[s1]`);
 let last = "s1";

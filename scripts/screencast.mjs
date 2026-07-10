@@ -49,6 +49,14 @@ const ctx = await browser.newContext({
   recordVideo: { dir: outDir, size: { width: recSize.width, height: recSize.height } },
 });
 
+// Block dev-tool assets so they never render (most reliable for toolbars that
+// rebuild themselves — e.g. Laravel Debugbar loads /_debugbar/assets/*).
+const blockUrls = cfg.blockUrls ?? [];
+if (blockUrls.length) await ctx.route("**/*", (route) => {
+  const u = route.request().url();
+  return blockUrls.some((s) => u.includes(s)) ? route.abort() : route.continue();
+});
+
 async function login() {
   const l = cfg.login, page = await ctx.newPage();
   await page.goto(cfg.baseUrl + l.path, { waitUntil: "domcontentloaded", timeout: 60000 });
@@ -59,11 +67,33 @@ async function login() {
   await page.close(); // login page video is discarded; recording page is the star
 }
 
+// Persist hideCss across EVERY navigation (a plain addStyleTag is lost on goto,
+// and dev toolbars often mount after load) by injecting at document-start.
+// Some toolbars (Laravel Debugbar) resist display:none via their own !important
+// stylesheet, so hideSelectors are physically REMOVED from the DOM on an interval.
+if (cfg.hideCss || cfg.hideSelectors) await ctx.addInitScript(({ css, selectors }) => {
+  if (css) {
+    const inject = () => {
+      if (document.getElementById("__adloom_hide")) return;
+      const s = document.createElement("style");
+      s.id = "__adloom_hide"; s.textContent = css;
+      (document.head || document.documentElement).appendChild(s);
+    };
+    inject(); document.addEventListener("DOMContentLoaded", inject);
+  }
+  if (selectors?.length) {
+    const strip = () => { for (const sel of selectors) document.querySelectorAll(sel).forEach(e => e.remove()); };
+    setInterval(strip, 300);
+    document.addEventListener("DOMContentLoaded", strip);
+  }
+}, { css: cfg.hideCss ?? "", selectors: cfg.hideSelectors ?? [] });
+
 if (cfg.auth) await login();
 
 const page = await ctx.newPage();
 await page.goto(cfg.baseUrl + (cfg.route ?? "/"), { waitUntil: "networkidle", timeout: 90000 }).catch(() => {});
 if (cfg.hideCss) await page.addStyleTag({ content: cfg.hideCss }).catch(() => {});
+if (cfg.waitFor) await page.waitForSelector(cfg.waitFor, { timeout: 30000 }).catch(() => {});
 await page.waitForTimeout(800);
 
 for (const s of cfg.steps ?? []) {

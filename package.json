@@ -4,8 +4,13 @@
   "description": "Design-to-publish studio for social campaigns: AI image plates, strict-grid HTML compositing, brand-voice captions, and one-call scheduling to Metricool.",
   "type": "module",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/jihad1991/adloom.git" },
-  "engines": { "node": ">=18" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jihad1991/adloom.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "plate": "node scripts/gen.mjs gemini-3-pro-image-preview",
     "extend": "node scripts/gen_edit.mjs",
@@ -13,5 +18,20 @@
     "screencast": "node scripts/screencast.mjs",
     "reel": "node scripts/reel.mjs"
   },
-  "keywords": ["social-media", "gemini", "image-generation", "compositing", "reels", "video", "ffmpeg", "metricool", "scheduling", "claude-code", "skills"]
+  "keywords": [
+    "social-media",
+    "gemini",
+    "image-generation",
+    "compositing",
+    "reels",
+    "video",
+    "ffmpeg",
+    "metricool",
+    "scheduling",
+    "claude-code",
+    "skills"
+  ],
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
 }

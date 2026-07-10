@@ -33,7 +33,11 @@ Chrome on PATH (or `FFMPEG_PATH`/`FFPROBE_PATH`/`CHROME_PATH`), plus `playwright
    scan → browse → add to cart → order. One clear job, 4–7 seconds. Concrete beats beat a feature tour.
 
 2. **Script + record the screencast.** Write `screencast.config.json` (baseUrl, route, viewport, a
-   `steps` list of wait/click/scroll/hover/fill, `recordSize` matching the screen rect aspect), then:
+   `steps` list of wait/click/scroll/hover/fill, `waitFor` a selector before acting). Two gotchas the
+   config handles: set **`recordSize` = the viewport CSS size** (a larger recordSize pads the frame with
+   gray — Playwright places the page top-left, it doesn't upscale), and kill dev toolbars with
+   **`blockUrls`** (e.g. `["_debugbar"]` — blocking its assets is far more reliable than CSS, since
+   Laravel Debugbar rebuilds itself; `hideSelectors` is a secondary DOM-removal fallback). Then:
    ```bash
    node scripts/screencast.mjs screencast.config.json                 # public flow
    APP_USER=... APP_PASS=... node scripts/screencast.mjs screencast.config.json   # auth flow (user runs)
@@ -60,6 +64,7 @@ Chrome on PATH (or `FFMPEG_PATH`/`FFPROBE_PATH`/`CHROME_PATH`), plus `playwright
   "canvas": { "w": 1080, "h": 1920, "fps": 30 },
   "screencast": "reel-src/screencast.webm",
   "screen": { "x": 160, "y": 300, "w": 760, "h": 1351, "radius": 46 },
+  "source": { "trimStart": 10, "trimEnd": 51, "speed": 2.9, "cropBottom": 0 },
   "cta": "فعّل Smart Menu",
   "beats": [
     { "text": "امسح الكود من الطاولة", "from": 0.2, "to": 2.2 },
@@ -69,6 +74,9 @@ Chrome on PATH (or `FFMPEG_PATH`/`FFPROBE_PATH`/`CHROME_PATH`), plus `playwright
 }
 ```
 Palette, fonts, logo, and CTA colors default from `config.json` — set only what you want to override.
+`source` is optional: `trimStart`/`trimEnd` cut boot dead-time, `speed` tightens pacing, `cropTop`/
+`cropBottom` shave stray edges. **Beat times are in OUTPUT time** (after trim/speed) — check the raw
+screencast on a contact sheet (`ffmpeg -i in.webm -vf "fps=12/DUR,tile=6x2" sheet.png`) to place them.
 
 ## Rules
 - **Real footage only.** The whole point is authenticity — never fake the UI. If you can't record it,
