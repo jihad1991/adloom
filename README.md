@@ -25,6 +25,7 @@ Built and battle-tested end-to-end on a real 7-day bilingual (Arabic/English) ca
 brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-plate    (AI imagery, one master → all ratios)
                                               ├─▶ /adloom-compose  (grid + fonts + mockups → PNGs)
                                               ├─▶ /adloom-hook     (openers) → captions
+                                              ├─▶ /adloom-reel     (screencast → 9:16 mockup reel + captions)
                                               └─▶ /adloom-review   (QA every artboard)
                                                         │ pass
                                                         ▼
@@ -42,6 +43,7 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
 | `/adloom-plate` | Gemini image plates + **extend one master across 1:1 / 4:5 / 9:16** (same image, every size) |
 | `/adloom-shots` | Screen Library: Playwright-captured product screens in a versioned library for mockups |
 | `/adloom-compose` | Strict-grid HTML compositing + embedded fonts → exact-pixel PNGs (headless Chrome) |
+| `/adloom-reel` | **Product-in-motion Reels**: real screencast in a branded phone mockup + beat-timed burned-in captions → 9:16 mp4 (Chrome layers + ffmpeg) |
 | `/adloom-campaign` | Orchestrate a full multi-day campaign end-to-end |
 | `/adloom-review` | Adversarial design QA: contrast, grid, overlap, fake text, cross-ratio consistency |
 | `/adloom-schedule` | Schedule to Facebook / Instagram / LinkedIn via the Metricool MCP |
@@ -61,7 +63,7 @@ brief ──▶ /adloom-voice ──▶ /adloom-campaign ─┬─▶ /adloom-pl
   the Metricool API needs.
 
 ## Install
-Requires Node 18+ and Chrome/Chromium.
+Requires Node 18+ and Chrome/Chromium. Reels (`/adloom-reel`) also need **ffmpeg + ffprobe** on PATH and `playwright` (`npm i -D playwright`).
 
 ```bash
 git clone https://github.com/jihad1991/adloom.git
@@ -90,6 +92,8 @@ secrets live in `.env` (never committed). No brand data is baked into the skills
 - `scripts/gen_edit.mjs` — image-to-image reframe/extend (cross-ratio consistency, targeted edits). (`npm run extend`)
 - `scripts/render.mjs` — render an HTML artboard to PNG at exact pixels via headless Chrome. (`npm run render`)
 - `scripts/fontface.mjs` — embed local fonts as base64 `@font-face`.
+- `scripts/screencast.mjs` — record a real product flow as video (Playwright) for a reel. (`npm run screencast`)
+- `scripts/reel.mjs` — composite a screencast into a branded 9:16 phone-mockup reel with beat-timed captions (Chrome layers + ffmpeg). (`npm run reel`)
 
 ## Try it in 5 minutes
 [`examples/coffee-shop/`](examples/coffee-shop/) is a complete miniature project — config, brand voice,

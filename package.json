@@ -9,7 +9,9 @@
   "scripts": {
     "plate": "node scripts/gen.mjs gemini-3-pro-image-preview",
     "extend": "node scripts/gen_edit.mjs",
-    "render": "node scripts/render.mjs"
+    "render": "node scripts/render.mjs",
+    "screencast": "node scripts/screencast.mjs",
+    "reel": "node scripts/reel.mjs"
   },
-  "keywords": ["social-media", "gemini", "image-generation", "compositing", "metricool", "scheduling", "claude-code", "skills"]
+  "keywords": ["social-media", "gemini", "image-generation", "compositing", "reels", "video", "ffmpeg", "metricool", "scheduling", "claude-code", "skills"]
 }
